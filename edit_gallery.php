@@ -31,7 +31,7 @@ if( !empty( $gContent->mStructureId ) ) {
 
 	// this interferes with the deletion
 	$verifyStructurePermission = 'p_treasury_update_gallery';
-	include_once( LIBERTY_PKG_PATH.'edit_structure_inc.php' );
+	include_once( LIBERTYSTRUCTURE_PKG_PATH.'edit_structure_inc.php' );
 
 	// get all the nodes in this structure
 	foreach( $rootTree as $node ) {

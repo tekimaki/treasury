@@ -14,7 +14,7 @@
  * Setup
  */ 
 require_once( LIBERTY_PKG_PATH.'LibertyMime.php' );
-require_once( LIBERTY_PKG_PATH.'LibertyStructure.php' );
+require_once( LIBERTYSTRUCTURE_PKG_PATH.'LibertyStructure.php' );
 
 /**
  *   TreasuryBase 
