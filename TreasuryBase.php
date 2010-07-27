@@ -23,6 +23,13 @@ require_once( LIBERTYSTRUCTURE_PKG_PATH.'LibertyStructure.php' );
  * @uses LibertyMime
  */
 class TreasuryBase extends LibertyMime {
+
+	/**
+	 * If this content is being viewed within a structure
+	 * @public
+	 */
+	var $mStructureId;
+
 	/**
 	 * Initiates class
 	 *

@@ -23,6 +23,13 @@ require_once( TREASURY_PKG_PATH.'TreasuryBase.php' );
  * @uses TreasuryBase
  */
 class TreasuryGallery extends TreasuryBase {
+
+	/**
+	 * If this content is being viewed within a structure
+	 * @public
+	 */
+	var $mStructureId;
+
 	/**
 	 * Initiate class
 	 *
