@@ -1,4 +1,22 @@
 <?php
+
+global $gBitSystem;
+
+$gBitSystem->registerPackageInfo( TREASURY_PKG_NAME, array(
+	'description' => "A flexible file manager.",
+	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
+));
+
+// Package Requirements
+$gBitSystem->registerRequirements( TREASURY_PKG_NAME, array(
+	'liberty' => array( 'min' => '2.1.4' ),
+));
+
+
+// Install process
+global $gBitInstaller;
+if( is_object( $gBitInstaller ) ){
+
 $tables = array(
 	'treasury_gallery' => "
 		content_id I4 NOTNULL,
@@ -16,16 +34,9 @@ $tables = array(
 	",
 );
 
-global $gBitInstaller;
-
 foreach( array_keys( $tables ) AS $tableName ) {
 	$gBitInstaller->registerSchemaTable( TREASURY_PKG_NAME, $tableName, $tables[$tableName] );
 }
-
-$gBitInstaller->registerPackageInfo( TREASURY_PKG_NAME, array(
-	'description' => "A flexible file manager.",
-	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
-));
 
 // Sequences
 $sequences = array (
@@ -95,7 +106,4 @@ $gBitInstaller->registerContentObjects( WIKI_PKG_NAME, array(
 	'TreasuryGallery' => TREASURY_PKG_PATH.'TreasuryGallery.php',
 ));
 
-// Package Requirements
-$gBitInstaller->registerRequirements( TREASURY_PKG_NAME, array(
-	'liberty' => array( 'min' => '2.1.4' ),
-));
+}
