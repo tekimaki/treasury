@@ -1,0 +1,99 @@
+---
+treasury: 
+  version: 0.9.1
+  required: false
+  requirements: 
+    liberty: 
+      min: 2.1.4
+  description: A flexible file manager.
+  license: 
+    name: LGPL
+    description:  Licensed under the GNU LESSER GENERAL PUBLIC LICENSE.
+    url: http://www.gnu.org/copyleft/lesser.html
+  homeable: false
+  tables: 
+    treasury_gallery: |
+      
+      content_id I4 NOTNULL,
+      structure_id I4 NOTNULL,
+      is_private C(1) DEFAULT 'n'
+      CONSTRAINT '
+      , CONSTRAINT `treasury_gallery_content_ref` FOREIGN KEY (`content_id`) REFERENCES `liberty_content`( `content_id` )
+      , CONSTRAINT `treasury_gallery_structure_ref` FOREIGN KEY (`structure_id`) REFERENCES `liberty_structures`( `structure_id` )'
+      
+    treasury_map: |
+      
+      gallery_content_id I4 NOTNULL,
+      item_content_id I4 NOTNULL,
+      item_position I4
+      
+  sequences: 
+    treasury_id_seq: 
+      start: 1
+  indexes: 
+    treasury_gallery_content_idx: 
+      table: treasury_gallery
+      cols: content_id
+      opts: 
+        - UNIQUE
+    treasury_gallery_structure_idx: 
+      table: treasury_gallery
+      cols: structure_id
+      opts: 
+        - UNIQUE
+  preferences: 
+    treasury_gallery_list_thumb: avatar
+    treasury_gallery_view_thumb: small
+    treasury_gallery_list_title: y
+    treasury_gallery_list_desc: y
+    treasury_gallery_list_created: y
+    treasury_gallery_list_creator: y
+    treasury_gallery_list_hits: y
+    treasury_gallery_list_structure: y
+    treasury_item_list_thumb: icon
+    treasury_item_list_size: y
+    treasury_item_list_date: y
+    treasury_item_list_hits: y
+    treasury_item_view_thumb: small
+    treasury_item_view_name: y
+    treasury_item_view_desc: y
+    treasury_item_view_size: y
+    treasury_item_view_date: y
+    treasury_item_view_creator: y
+    treasury_item_view_hits: y
+    treasury_menu_text: File Galleries
+    treasury_extended_upload_slots: y
+  permissions: 
+    p_treasury_view_gallery: 
+      description: Can view file galleries
+      level: basic
+    p_treasury_create_gallery: 
+      description: Can create and remove file galleries
+      level: editors
+    p_treasury_update_gallery: 
+      description: Can edit existing file galleries
+      level: editors
+    p_treasury_view_item: 
+      description: Can view a downloadable file
+      level: basic
+    p_treasury_download_item: 
+      description: Can download files
+      level: basic
+    p_treasury_upload_item: 
+      description: >
+        Can upload files into existing file
+        galleries
+      level: registered
+    p_treasury_import_item: 
+      description: >
+        Can import a file from an upload
+        directory
+      level: editors
+    p_treasury_update_item: 
+      description: Can edit already uploaded files
+      level: editors
+    p_treasury_admin: 
+      description: >
+        Can admin file galleries and the
+        uploaded files
+      level: admin
