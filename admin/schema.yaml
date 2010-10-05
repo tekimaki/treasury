@@ -97,3 +97,6 @@ treasury:
         Can admin file galleries and the
         uploaded files
       level: admin
+  contenttypes:
+    TreasuryItem: TreasuryItem.php
+    TreasuryGallery: TreasuryGallery.php
