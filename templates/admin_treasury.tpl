@@ -97,7 +97,7 @@
 		{/jstab}
 	{/jstabs}
 
-	<div class="row submit">
+	<div class="buttonHolder row submit">
 		<input type="submit" name="treasury_settings" value="{tr}Change preferences{/tr}" />
 	</div>
 {/form}
